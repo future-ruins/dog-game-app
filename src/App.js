@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
+import DogsListContainer from "./Components/DogsListContainer";
+import DogBreedImagesContainer from "./Components/DogBreedImagesContainer";
 
 class App extends React.Component {
   render() {
