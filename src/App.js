@@ -13,7 +13,7 @@ class App extends React.Component {
       .then(response =>
         //console.log("response body.message", response.body.message)
         this.props.dispatch({
-          type: "FETCH_DATA",
+          type: "FETCH_DOG_BREEDS",
           payload: Object.keys(response.body.message)
         })
       )
