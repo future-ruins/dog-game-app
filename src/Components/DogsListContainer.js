@@ -1,33 +1,39 @@
-// Retrieves nad handles the data:  
+// Retrieves nad handles the data:
 // Container Component
 
-import React, {Component} from 'react'
-import request from 'superagent';
-import DogsList from './DogsList';
+import React, { Component } from "react";
+import request from "superagent";
+import DogsList from "./DogsList";
+import { connect } from "react-redux";
 
-export default class DogsListContainer extends Component {
+class DogsListContainer extends Component {
+  state = { dogBreeds: null };
 
-    state = { dogBreeds : null }
+  // componentDidMount() {
+  //     request
+  //     .get('https://dog.ceo/api/breeds/list/all')
+  //     .then(response => {
+  //         const breeds = Object.keys(response.body.message)
+  //         //console.log(breeds)
+  //         this.updateBreeds(breeds)
+  //     })
+  //     .catch(console.error)
+  // }
 
-    componentDidMount() {
-        request
-        .get('https://dog.ceo/api/breeds/list/all')
-        .then(response => {
-            const breeds = Object.keys(response.body.message)
-            //console.log(breeds)
-            this.updateBreeds(breeds)
-        })
-        .catch(console.error)
-    }
+  // updateBreeds(breeds) {
+  //     this.setState(
+  //         { dogBreeds : breeds }
+  //     )
+  // }
 
-    updateBreeds(breeds) {
-        this.setState(
-            { dogBreeds : breeds }
-        )
-    }
+  render() {
+    // OLD WAY: return <DogsList dogBreeds={this.state.dogBreeds} />;
+    return <DogsList dogBreeds={this.state.dogBreeds} />;
+  }
+}
 
-    render() {
-      return <DogsList dogBreeds={this.state.dogBreeds} />
-    }
+const mapStateToProps = state => {
+  return { breedsList: state };
+};
 
-  };
+export default connect(mapStateToProps)(DogsListContainer);
