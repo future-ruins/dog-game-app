@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import DogBreedImages from "./DogBreedImages";
 import request from "superagent";
 import { connect } from "react-redux";
+import QuizOne from "./QuizOne";
 
-class DogBreedImagesContainer extends Component {
+export default class QuizOneContainer extends Component {
   state = { images: null };
 
   componentDidMount() {
@@ -15,7 +16,7 @@ class DogBreedImagesContainer extends Component {
   }
 
   updateImages(images) {
-    const tenImages = images.slice(0, 10);
+    const tenImages = images.slice(0, 1);
     this.setState({
       images: tenImages
     });
@@ -23,15 +24,13 @@ class DogBreedImagesContainer extends Component {
 
   render() {
     console.log("Container props test:", this.props);
-    return (
-      <DogBreedImages match={this.props.match} images={this.state.images} />
-    );
+    return <QuizOne match={this.props.match} images={this.state.images} />;
   }
 }
 
-const mapStateToProps = state => {
-  // console.log("STATE OF REDUX STORE", state);
-  return { state: state };
-};
+// const mapStateToProps = state => {
+//   // console.log("STATE OF REDUX STORE", state);
+//   return { state: state };
+// };
 
-export default connect(mapStateToProps)(DogBreedImagesContainer);
+// export default connect(mapStateToProps)(DogBreedImagesContainer);
