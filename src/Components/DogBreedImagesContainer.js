@@ -22,7 +22,7 @@ class DogBreedImagesContainer extends Component {
   }
 
   render() {
-    console.log("Container props test:", this.props);
+    //console.log("Container props test:", this.props);
     return (
       <DogBreedImages match={this.props.match} images={this.state.images} />
     );

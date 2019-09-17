@@ -4,8 +4,22 @@ import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import DogsListContainer from "./Components/DogsListContainer";
 import DogBreedImagesContainer from "./Components/DogBreedImagesContainer";
+import request from "superagent";
 
 class App extends React.Component {
+  componentDidMount() {
+    request
+      .get(`https://dog.ceo/api/breeds/list/all`)
+      .then(response =>
+        //console.log("response body.message", response.body.message)
+        this.props.dispatch({
+          type: "FETCH_DATA",
+          payload: Object.keys(response.body.message)
+        })
+      )
+      .catch(console.error);
+  }
+
   render() {
     return (
       <div className="App">
@@ -23,9 +37,10 @@ class App extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
+const mapStateToProps = state => {
+  console.log("STATE OF REDUX STORE", state);
 
-//   return { state: state };
-// };
+  return { state: state };
+};
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
