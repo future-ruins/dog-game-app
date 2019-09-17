@@ -28,12 +28,13 @@ class DogsListContainer extends Component {
 
   render() {
     // OLD WAY: return <DogsList dogBreeds={this.state.dogBreeds} />;
-    return <DogsList dogBreeds={this.state.dogBreeds} />;
+    console.log("this.props.state", this.props.state);
+    return <DogsList dogBreeds={this.props.state} />;
   }
 }
 
 const mapStateToProps = state => {
-  return { breedsList: state };
+  return { state: state };
 };
 
 export default connect(mapStateToProps)(DogsListContainer);
