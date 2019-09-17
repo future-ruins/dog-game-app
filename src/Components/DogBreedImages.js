@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function DogBreedImages(props) {
+export default function DogBreedImages(props) { // this is UI, and shows the data
 
-    console.log('props test:', props)
+    // console.log('props test:', props)
 
     const images = props.images;
+    console.log('what are images?', images)
 
     return (
         <div className="dog-breed-images">
