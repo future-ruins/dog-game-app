@@ -3,7 +3,7 @@ import _ from "lodash";
 
 export const getDogs = () => {
   return (dispatch, getState) => {
-    const dogsList = getState();
+    const dogsList = getState().dogsList;
     if (dogsList !== null) return;
     request.get("https://dog.ceo/api/breeds/list/all").then(response => {
       dispatch({
@@ -11,6 +11,21 @@ export const getDogs = () => {
         payload: Object.keys(response.body.message)
       });
     });
+  };
+};
+
+export const getImages = () => {
+  return (dispatch, getState) => {
+    const dogImages = getState().imagesReducer;
+    if (dogImages !== null) return;
+    request
+      .get("https://dog.ceo/api/breed/hound/images/random/10")
+      .then(response => {
+        dispatch({
+          type: "SET_DOGS_IMAGES",
+          payload: response.body.message
+        });
+      });
   };
 };
 
