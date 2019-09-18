@@ -10,19 +10,23 @@ class DogsListImages extends React.Component {
   }
 
   renderDogBreed(breed) {
-    // return <li key={breed}>{breed}</li>;
+    return <li key={breed}>{breed}</li>;
   }
 
   render() {
     const images = this.props.state;
+    console.log("state:", images);
     return (
       <div className="dog-breed-images">
         <h1>Dogs Breed Images</h1>
         This page will show images of the {this.props.match.params.breed} breed.
-        <Link to="/">Go back to the index</Link>
+        <Link to="/dogs">Go back to the list</Link>
         <div>
           {console.log(images)}
-          {images && images.map(url => <img src={url} alt="Dog" />)}
+          {images &&
+            images.map(urlImage => (
+              <img key={urlImage} src={urlImage} alt="Dog" />
+            ))}
           {!images && "Loading..."}
         </div>
       </div>
@@ -31,7 +35,7 @@ class DogsListImages extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { state: state };
+  return { state: state.imagesReducer };
 };
 
 export default connect(

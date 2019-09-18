@@ -1,7 +1,7 @@
 // With thunks configured
 
 import { createStore, applyMiddleware, compose } from "redux";
-import reducer from "./Reducers/reducer";
+import reducer from "./Reducers";
 import ReduxThunk from "redux-thunk";
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__

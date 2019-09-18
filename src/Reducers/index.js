@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import reducer from "./reducer";
+import dogsList from "./dogsListReducer";
 import imagesReducer from "./imagesReducer";
 
 export default combineReducers({
-  reducer,
+  dogsList,
   imagesReducer
 });

@@ -3,7 +3,7 @@ import _ from "lodash";
 
 export const getDogs = () => {
   return (dispatch, getState) => {
-    const dogsList = getState();
+    const dogsList = getState().dogsList;
     if (dogsList !== null) return;
     request.get("https://dog.ceo/api/breeds/list/all").then(response => {
       dispatch({
@@ -16,12 +16,11 @@ export const getDogs = () => {
 
 export const getImages = () => {
   return (dispatch, getState) => {
-    const dogImages = getState();
+    const dogImages = getState().imagesReducer;
     if (dogImages !== null) return;
     request
       .get("https://dog.ceo/api/breed/hound/images/random/10")
       .then(response => {
-        console.log(response.body.message);
         dispatch({
           type: "SET_DOGS_IMAGES",
           payload: response.body.message
