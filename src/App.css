@@ -2,11 +2,28 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+  padding: 2rem 0;
+  width: 100%;
+  background: whitesmoke;
+  font-family: "Alegreya Sans", sans-serif;
+  text-align: center;
+}
+
 nav a {
   margin: 0 10px;
   padding: 10px;
   border-radius: 5px;
-  background: plum;
+  background: #dbfcff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 .App-header {

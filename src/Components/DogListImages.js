@@ -18,10 +18,13 @@ class DogsListImages extends React.Component {
     console.log("state:", images);
     return (
       <div className="dog-breed-images">
-        <h1>Dogs Breed Images</h1>
-        This page will show images of the {this.props.match.params.breed} breed.
+        <h2>Dogs Breed Images</h2>
+        <p>
+          This page will show images of the {this.props.match.params.breed}{" "}
+          breed.
+        </p>
         <Link to="/dogs">Go back to the list</Link>
-        <div>
+        <div className="images">
           {console.log(images)}
           {images &&
             images.map(urlImage => (

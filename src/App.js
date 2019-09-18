@@ -17,9 +17,9 @@ class App extends React.Component {
             <nav>
               <Link to="/">Home</Link>
 
-              <Link to="/dogs/">Dog List</Link>
+              <Link to="/dogs/">Dogs List</Link>
 
-              <Link to="/game1/">Start Game</Link>
+              <Link to="/game1/">Game 1</Link>
             </nav>
           </header>
           <main>
@@ -29,7 +29,7 @@ class App extends React.Component {
             {/* <Route path="/game1/" component={Game1} /> */}
           </main>
           <footer>
-            <p>version 1</p>
+            <p>© Esther, Ivana, Akash</p>
           </footer>
         </Router>
       </div>

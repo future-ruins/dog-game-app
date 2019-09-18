@@ -17,7 +17,7 @@ class DogsList extends React.Component {
     console.log("Doglist state:", dogBreeds);
     return (
       <div className="dogs-list">
-        <h1>Dogs List</h1>
+        <h2>Show me the dogs: </h2>
 
         {!dogBreeds && "Loading..."}
 
