@@ -22,10 +22,10 @@ export const getImages = () => {
       .get("https://dog.ceo/api/breed/hound/images/random/10")
       .then(response => {
         console.log(response.body.message);
-        // dispatch({
-        //   type: "SET_DOGS_IMAGES",
-        //   payload: Object.keys(response.body.message)
-        // });
+        dispatch({
+          type: "SET_DOGS_IMAGES",
+          payload: response.body.message
+        });
       });
   };
 };

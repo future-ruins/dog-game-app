@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getDogs } from "../Actions/getDogs";
+import { getDogs, getImages } from "../Actions/getDogs";
 import { Link } from "react-router-dom";
 
 class DogsListImages extends React.Component {
   componentDidMount() {
     this.props.getDogs();
+    this.props.getImages();
   }
 
   renderDogBreed(breed) {
@@ -13,23 +14,18 @@ class DogsListImages extends React.Component {
   }
 
   render() {
-    const dogBreeds = this.props.state;
+    const images = this.props.state;
     return (
-    //   <div className="dogs-list">
-    //     <h1>Dogs List</h1>
-
-    //     {!dogBreeds && "Loading..."}
-
-    //     {dogBreeds && (
-    //       <ul>
-    //         {dogBreeds.map(breed => (
-    //           <li key={breed}>
-    //             <Link to={`/dog-breeds/${breed}`}>{breed}></Link>
-    //           </li>
-    //         ))}
-    //       </ul>
-    //     )}
-    //   </div>
+      <div className="dog-breed-images">
+        <h1>Dogs Breed Images</h1>
+        This page will show images of the {this.props.match.params.breed} breed.
+        <Link to="/">Go back to the index</Link>
+        <div>
+          {console.log(images)}
+          {images && images.map(url => <img src={url} alt="Dog" />)}
+          {!images && "Loading..."}
+        </div>
+      </div>
     );
   }
 }
@@ -40,5 +36,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getDogs }
+  { getDogs, getImages }
 )(DogsListImages);

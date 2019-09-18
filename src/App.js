@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import DogsList from "./Components/DogsList";
+import DogListImages from "./Components/DogListImages";
 
 function Index() {
   return <h2>Home</h2>;
@@ -28,6 +29,7 @@ class App extends React.Component {
             </nav>
 
             <Route path="/" exact component={Index} />
+            <Route path="/dog-breeds/:breed" component={DogListImages} />
             <Route path="/dogs/" component={DogsList} />
             {/* <Route path="/game1/" component={Game1} /> */}
           </div>
