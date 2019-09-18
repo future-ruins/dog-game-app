@@ -1,7 +1,7 @@
-const reducer = (state = [], action = {}) => {
+const reducer = (state = null, action = {}) => {
   switch (action.type) {
     case "SET_DOGS_LIST":
-      return [...state, ...action.payload];
+      return [...action.payload];
     default:
       return state;
   }
