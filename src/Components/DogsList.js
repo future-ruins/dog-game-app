@@ -1,19 +1,18 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { connect } from "react-redux";
+import { getDogs } from "../Actions/getDogs";
 
-export default class DogsList extends Component {
-  renderDogBreed(breed) {
-    return <li key={breed}>{breed}</li>;
+class DogsList extends React.Component {
+  componentDidMount() {
+    this.props.getDogs();
   }
 
   render() {
-    const dogBreeds = this.props.dogBreeds; // child component using data from store
-    //console.log("LIST OF BREEDS", dogBreeds);
     return (
       <div className="dogs-list">
         <h1>Dogs List</h1>
 
-        {!dogBreeds && "Loading..."}
+        {/* {!dogBreeds && "Loading..."}
 
         {dogBreeds && (
           <ul>
@@ -23,8 +22,13 @@ export default class DogsList extends Component {
               </li>
             ))}
           </ul>
-        )}
+        )} */}
       </div>
     );
   }
 }
+
+export default connect(
+  null,
+  { getDogs }
+)(DogsList);
