@@ -28,7 +28,11 @@ class DogsList extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return { state: state };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { getDogs }
 )(DogsList);
