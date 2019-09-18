@@ -1,46 +1,40 @@
 import React from "react";
 import "./App.css";
-import { connect } from "react-redux";
-import { Route } from "react-router-dom";
-import DogsListContainer from "./Components/DogsListContainer";
-import DogBreedImagesContainer from "./Components/DogBreedImagesContainer";
-import request from "superagent";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import DogsList from "./Components/DogsList";
+
+function Index() {
+  return <h2>Home</h2>;
+}
 
 class App extends React.Component {
-  componentDidMount() {
-    request
-      .get(`https://dog.ceo/api/breeds/list/all`)
-      .then(response =>
-        //console.log("response body.message", response.body.message)
-        this.props.dispatch({
-          type: "FETCH_DOG_BREEDS",
-          payload: Object.keys(response.body.message)
-        })
-      )
-      .catch(console.error);
-  }
-
   render() {
     return (
       <div className="App">
-        <main>
-          <Route exact path="/" component={DogsListContainer} />
-          {/* :breed is a parameter!! IF THIS PARAMETER IS AT THE END OF
-      THE PATH SHOW THIS COMPONENT */}
-          <Route
-            path="/dog-breeds/:breed"
-            component={DogBreedImagesContainer}
-          />
-        </main>
+        <Router>
+          <div>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/dogs/">Dog List</Link>
+                </li>
+                <li>
+                  <Link to="/game1/">Start Game</Link>
+                </li>
+              </ul>
+            </nav>
+
+            <Route path="/" exact component={Index} />
+            <Route path="/dogs/" component={DogsList} />
+            {/* <Route path="/game1/" component={Game1} /> */}
+          </div>
+        </Router>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  console.log("STATE OF REDUX STORE", state);
-
-  return { state: state };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
