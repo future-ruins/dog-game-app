@@ -14,6 +14,22 @@ export const getDogs = () => {
   };
 };
 
+export const getImages = () => {
+  return (dispatch, getState) => {
+    const dogImages = getState();
+    if (dogImages !== null) return;
+    request
+      .get("https://dog.ceo/api/breed/hound/images/random/10")
+      .then(response => {
+        console.log(response.body.message);
+        // dispatch({
+        //   type: "SET_DOGS_IMAGES",
+        //   payload: Object.keys(response.body.message)
+        // });
+      });
+  };
+};
+
 // 'Async' action creatores a.k.a. reduxthunk
 // export const getRandomDog = () => {
 //   return (dispatch, getState) => {

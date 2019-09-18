@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getDogs } from "../Actions/getDogs";
+import { getDogs, getImages } from "../Actions/getDogs";
 import { Link } from "react-router-dom";
 
 class DogsList extends React.Component {
   componentDidMount() {
     this.props.getDogs();
+    this.props.getImages();
   }
 
   renderDogBreed(breed) {
@@ -40,5 +41,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getDogs }
+  { getDogs, getImages }
 )(DogsList);
