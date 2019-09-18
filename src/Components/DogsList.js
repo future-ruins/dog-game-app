@@ -14,7 +14,7 @@ class DogsList extends React.Component {
 
   render() {
     const dogBreeds = this.props.state;
-    console.log("Doglist state:", dogBreeds);
+    //console.log("Doglist state:", dogBreeds);
     return (
       <div className="dogs-list">
         <h2>Show me the dogs: </h2>
