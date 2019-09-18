@@ -14,7 +14,7 @@ class GameOne extends React.Component {
     console.log("randomImage is:", randomImage);
     return (
       <div className="randomDogImage">
-        <h1>Hello gamer, here's a random dog image</h1>
+        <h2>Hello gamer, here's a random dog image</h2>
         <img src={randomImage} alt="Dog" />
       </div>
     );
