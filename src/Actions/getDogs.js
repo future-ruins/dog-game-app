@@ -31,7 +31,7 @@ export const getImages = () => {
 
 export const getRandomDog = () => {
   return (dispatch, getState) => {
-    const randomDog = _.sample(getState().gameOneReducer);
+    const randomDog = _.sample(getState().dogsList);
     request
       .get(`https://dog.ceo/api/breed/${randomDog}/images/random`)
       .then(response => {

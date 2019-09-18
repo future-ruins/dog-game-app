@@ -11,8 +11,13 @@ class GameOne extends React.Component {
 
   render() {
     const randomImage = this.props.state;
-    console.log(randomImage);
-    return <h1>Hello gamer</h1>;
+    console.log("randomImage is:", randomImage);
+    return (
+      <div className="randomDogImage">
+        <h1>Hello gamer, here's a random dog image</h1>
+        <img src={randomImage} alt="Dog" />
+      </div>
+    );
   }
 }
 

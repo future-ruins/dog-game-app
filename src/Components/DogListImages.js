@@ -15,7 +15,7 @@ class DogsListImages extends React.Component {
 
   render() {
     const images = this.props.state;
-    console.log("state:", images);
+    //console.log("state:", images);
     return (
       <div className="dog-breed-images">
         <h2>Dogs Breed Images</h2>
@@ -25,7 +25,7 @@ class DogsListImages extends React.Component {
         </p>
         <Link to="/dogs">Go back to the list</Link>
         <div className="images">
-          {console.log(images)}
+          {/* {console.log(images)} */}
           {images &&
             images.map(urlImage => (
               <img key={urlImage} src={urlImage} alt="Dog" />

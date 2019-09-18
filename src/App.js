@@ -30,7 +30,7 @@ class App extends React.Component {
             <Route path="/game-one/" component={GameOne} />
           </main>
           <footer>
-            <p>© Esther, Ivana, Akash</p>
+            <p>version 1</p>
           </footer>
         </Router>
       </div>
