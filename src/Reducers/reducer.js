@@ -1,6 +1,6 @@
 const reducer = (state = [], action = {}) => {
   switch (action.type) {
-    case "FETCH_DOG_BREEDS":
+    case "SET_DOGS_LIST":
       return [...state, ...action.payload];
     default:
       return state;
