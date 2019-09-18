@@ -3,7 +3,7 @@ import _ from "lodash";
 
 export const getDogs = () => {
   return (dispatch, getState) => {
-    const dogsList = getState().dogs;
+    const dogsList = getState();
     if (dogsList !== null) return;
     request.get("https://dog.ceo/api/breeds/list/all").then(response => {
       dispatch({
