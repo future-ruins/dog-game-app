@@ -8,7 +8,7 @@ export default class DogsList extends Component {
 
   render() {
     const dogBreeds = this.props.dogBreeds; // child component using data from store
-    console.log("LIST OF BREEDS", dogBreeds);
+    //console.log("LIST OF BREEDS", dogBreeds);
     return (
       <div className="dogs-list">
         <h1>Dogs List</h1>
