@@ -13,26 +13,24 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <div>
+          <header>
             <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/dogs/">Dog List</Link>
-                </li>
-                <li>
-                  <Link to="/game1/">Start Game</Link>
-                </li>
-              </ul>
-            </nav>
+              <Link to="/">Home</Link>
 
+              <Link to="/dogs/">Dog List</Link>
+
+              <Link to="/game1/">Start Game</Link>
+            </nav>
+          </header>
+          <main>
             <Route path="/" exact component={Index} />
             <Route path="/dog-breeds/:breed" component={DogListImages} />
             <Route path="/dogs/" component={DogsList} />
             {/* <Route path="/game1/" component={Game1} /> */}
-          </div>
+          </main>
+          <footer>
+            <p>version 1</p>
+          </footer>
         </Router>
       </div>
     );
