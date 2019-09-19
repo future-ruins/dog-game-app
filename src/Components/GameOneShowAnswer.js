@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getDogs, getRandomDog } from "../Actions/getDogs";
 import { Link } from "react-router-dom";
 import _ from "lodash";
+import { setTimeout } from "timers";
 
 // const randomDogName1 = this.getRandomDogNameFromDogList()
 // const randomDogName2 = this.getRandomDogNameFromDogList()
@@ -28,25 +29,33 @@ class GameOneShowAnswer extends React.Component {
     return _.sample(arrayOfRandomDogNames)
   }
 
-  handleClick=()=>{
+  handleClick = () => {
     alert('CorrectAnswer')
     return this.retrieveRandomDogImage()
   }
   
-  handleClickA=()=>{
-    alert("YOU WROnG!")
+  handleClickA = () => {
+    alert(`Incorrect! The correct answer is ${this.props.gameOne.breed}.`)
+    setTimeout(this.retrieveRandomDogImage, 2000)
+    return
   }
   
-  handleClickB=()=>{
-    alert("YOU WROnG!")
+  handleClickB = () => {
+    alert(`Incorrect! The correct answer is ${this.props.gameOne.breed}.`)
+    setTimeout(this.retrieveRandomDogImage, 2000)
+    return
+  }
+
+  showCorrectAnswer = () => {
+
   }
   
   makeMyOptions = () => {
     const randomDogBreedName = this.props.gameOne.breed;
-    const correctAnswer =<li onClick={this.handleClick} >{randomDogBreedName}</li>
     
-    const wrongNameOne = <li onClick={this.handleClickA} >{this.getRandomDogNameFromDogList()}</li>;
-    const wrongNameTwo = <li onClick={this.handleClickB} >{this.getRandomDogNameFromDogList()}</li>;
+    const correctAnswer =<h2 onClick={this.handleClick} >{randomDogBreedName}</h2>
+    const wrongNameOne = <h2 onClick={this.handleClickA} >{this.getRandomDogNameFromDogList()}</h2>;
+    const wrongNameTwo = <h2 onClick={this.handleClickB} >{this.getRandomDogNameFromDogList()}</h2>;
     
     const arrayOfOptions = [wrongNameOne, wrongNameTwo, correctAnswer];
     
