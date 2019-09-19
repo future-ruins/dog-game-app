@@ -3,18 +3,17 @@ import { connect } from "react-redux";
 import { getDogs, getRandomDog } from "../Actions/getDogs";
 import { Link } from "react-router-dom";
 import _ from "lodash";
-import GameOneShowAnswer from "./GameOneShowAnswer";
 
 
-class GameOne extends React.Component {
+class GameOneShowAnswer extends React.Component {
   componentDidMount() {
     this.props.getDogs();
   }
 
-  retrieveRandomDogImage = () => {
-    this.props.getRandomDog();
-    this.getRandomDogNameFromDogList()
-  }
+//   retrieveRandomDogImage = () => {
+//     this.props.getRandomDog();
+//     this.getRandomDogNameFromDogList()
+//   }
 
   getRandomDogNameFromDogList = () => {
     const dogName = this.props.dogsList
@@ -24,20 +23,17 @@ class GameOne extends React.Component {
   }
 
   render() {
-    const randomImage = this.props.gameOne;
-    console.log('randomImage test:', randomImage)
-    const question = randomImage && <div>
-      <img src={randomImage} alt="" />
-      <GameOneShowAnswer />
-    </div>
+    // const randomImage = this.props.gameOne;
     return (
       <div className="randomDogImage">
-        <h2>Hello gamer!</h2>
-        <h2>Ready for game one!</h2>
-        <button onClick={this.retrieveRandomDogImage}>Start!</button>
+        <h2>Select the correct breed.</h2>
+        <button onClick={this.retrieveRandomDogImage}>Show next question!</button>
         <br></br>
         <br></br>
-        {question}
+        {/* <img src={randomImage} alt="" /> */}
+        <p>{this.getRandomDogNameFromDogList()}</p>
+        <p>{this.getRandomDogNameFromDogList()}</p>
+        <p>{this.getRandomDogNameFromDogList()}</p>
       </div>
     );
   }
@@ -54,4 +50,4 @@ const mapStateToProps = state => { // each prop will have the value you give it.
 export default connect(
   mapStateToProps,
   { getDogs, getRandomDog }
-)(GameOne);
+)(GameOneShowAnswer);
