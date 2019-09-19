@@ -30,6 +30,7 @@ class GameOneShowAnswer extends React.Component {
 
   handleClick=()=>{
     alert('CorrectAnswer')
+    return this.retrieveRandomDogImage()
   }
   
   handleClickA=()=>{
