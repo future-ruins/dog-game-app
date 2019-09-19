@@ -23,7 +23,7 @@ class GameOne extends React.Component {
   }
 
   render() {
-    const randomImage = this.props.state;
+    const randomImage = this.props.gameOne;
     return (
       <div className="randomDogImage">
         <h2>Hello gamer!</h2>
