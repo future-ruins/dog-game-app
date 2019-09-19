@@ -28,8 +28,33 @@ class GameOneShowAnswer extends React.Component {
     return _.sample(arrayOfRandomDogNames)
   }
 
-  render() {
+  handleClick=()=>{
+    alert('CorrectAnswer')
+  }
+  
+  handleClickA=()=>{
+    alert("YOU WROnG!")
+  }
+  
+  handleClickB=()=>{
+    alert("YOU WROnG!")
+  }
+  
+  makeMyOptions = () => {
     const randomDogBreedName = this.props.gameOne.breed;
+    const correctAnswer =<li onClick={this.handleClick} >{randomDogBreedName}</li>
+    
+    const wrongNameOne = <li onClick={this.handleClickA} >{this.getRandomDogNameFromDogList()}</li>;
+    const wrongNameTwo = <li onClick={this.handleClickB} >{this.getRandomDogNameFromDogList()}</li>;
+    
+    const arrayOfOptions = [wrongNameOne, wrongNameTwo, correctAnswer];
+    
+    const shuffledArrayOfOptions = _.shuffle(arrayOfOptions)
+    
+    return shuffledArrayOfOptions
+  }
+
+  render() {
     const randomImage = this.props.gameOne.image;
     console.log('randomImage test GAME ONE SHOW ANSWER :', randomImage)
     return (
@@ -39,9 +64,9 @@ class GameOneShowAnswer extends React.Component {
         <br></br>
         <br></br>
         { <img src={randomImage} alt="" /> }
-        <p>{randomDogBreedName}</p>
-        <p>{this.getRandomDogNameFromDogList()}</p>
-        <p>{this.getRandomDogNameFromDogList()}</p>
+        <ul>
+        {this.makeMyOptions()}
+        </ul>
       </div>
     );
   }
