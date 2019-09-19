@@ -15,16 +15,15 @@ class DogsListImages extends React.Component {
 
   render() {
     const images = this.props.state;
-    console.log('hello?', this.props.state)
+    console.log("hello?", this.props.state);
     //console.log("state:", images);
     return (
       <div className="dog-breed-images">
-        <h2>Dogs Breed Images</h2>
+        <h1>The {this.props.match.params.breed}</h1>
         <p>
-          This page will show images of the {this.props.match.params.breed}{" "}
-          breed.
+          On this page you can see what {this.props.match.params.breed} dogs
+          look like.
         </p>
-        <Link to="/dogs">Go back to the list</Link>
         <div className="images">
           {/* {console.log(images)} */}
           {images &&
@@ -33,6 +32,9 @@ class DogsListImages extends React.Component {
             ))}
           {!images && "Loading..."}
         </div>
+        <Link to="/dogs">
+          <p>Bring me back to the list</p>
+        </Link>
       </div>
     );
   }
