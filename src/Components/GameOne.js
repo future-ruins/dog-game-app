@@ -25,7 +25,8 @@ class GameOne extends React.Component {
 
   render() {
     const randomImage = this.props.gameOne;
-    // console.log('randomImage test:', randomImage)
+    console.log('randomImage test:', this.props.gameOne)
+    console.log('randomImage test image/breed in GAME ONE:', this.props.gameOne)
     const question = randomImage && <div>
       <img src={randomImage} alt="" />
       <GameOneShowAnswer />

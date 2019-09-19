@@ -10,10 +10,10 @@ class GameOneShowAnswer extends React.Component {
     this.props.getDogs();
   }
 
-//   retrieveRandomDogImage = () => {
-//     this.props.getRandomDog();
-//     this.getRandomDogNameFromDogList()
-//   }
+  retrieveRandomDogImage = () => {
+    this.props.getRandomDog();
+    this.getRandomDogNameFromDogList()
+  }
 
   getRandomDogNameFromDogList = () => {
     const dogName = this.props.dogsList
@@ -23,15 +23,17 @@ class GameOneShowAnswer extends React.Component {
   }
 
   render() {
-    // const randomImage = this.props.gameOne;
+    const randomDogBreedName = this.props.gameOne.breed;
+    const randomImage = this.props.gameOne.image;
+    console.log('randomImage test GAME ONE SHOW ANSWER :', randomImage)
     return (
       <div className="randomDogImage">
         <h2>Select the correct breed.</h2>
         <button onClick={this.retrieveRandomDogImage}>Show next question!</button>
         <br></br>
         <br></br>
-        {/* <img src={randomImage} alt="" /> */}
-        <p>{this.getRandomDogNameFromDogList()}</p>
+        { <img src={randomImage} alt="" /> }
+        <p>{randomDogBreedName}</p>
         <p>{this.getRandomDogNameFromDogList()}</p>
         <p>{this.getRandomDogNameFromDogList()}</p>
       </div>

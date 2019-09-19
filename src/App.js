@@ -31,7 +31,7 @@ class App extends React.Component {
             <Route path="/game-one/" component={GameOne} />
           </main>
           <footer>
-            <p>version 1</p>
+            <p></p>
           </footer>
         </Router>
       </div>
