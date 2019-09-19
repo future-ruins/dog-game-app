@@ -3,6 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import DogsList from "./Components/DogsList";
 import DogListImages from "./Components/DogListImages";
+import GameOne from "./Components/GameOne";
+//import Homepage from "./Components/Homepage";
 
 function Index() {
   return <h2>Home</h2>;
@@ -13,26 +15,24 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <div>
+          <header>
             <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/dogs/">Dog List</Link>
-                </li>
-                <li>
-                  <Link to="/game1/">Start Game</Link>
-                </li>
-              </ul>
-            </nav>
+              <Link to="/">Home</Link>
 
+              <Link to="/dogs/">Dogs List</Link>
+
+              <Link to="/game-one/">Game 1</Link>
+            </nav>
+          </header>
+          <main>
             <Route path="/" exact component={Index} />
             <Route path="/dog-breeds/:breed" component={DogListImages} />
             <Route path="/dogs/" component={DogsList} />
-            {/* <Route path="/game1/" component={Game1} /> */}
-          </div>
+            <Route path="/game-one/" component={GameOne} />
+          </main>
+          <footer>
+            <p>version 1</p>
+          </footer>
         </Router>
       </div>
     );

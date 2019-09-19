@@ -29,20 +29,19 @@ export const getImages = () => {
   };
 };
 
-// 'Async' action creatores a.k.a. reduxthunk
-// export const getRandomDog = () => {
-//   return (dispatch, getState) => {
-//     const randomDog = _.sample(getState().dogs);
-//     request
-//       .get(`https://dog.ceo/api/breed/${randomDog}/images/random`)
-//       .then(response => {
-//         dispatch({
-//           type: "SET_RANDOM_IMAGE_URL",
-//           payload: response.body.message
-//         });
-//       });
-//   };
-// };
+export const getRandomDog = () => {
+  return (dispatch, getState) => {
+    const randomDog = _.sample(getState().dogsList);
+    request
+      .get(`https://dog.ceo/api/breed/${randomDog}/images/random`)
+      .then(response => {
+        dispatch({
+          type: "SET_RANDOM_IMAGE_URL",
+          payload: response.body.message
+        });
+      });
+  };
+};
 
 // // 'Normal' action creators
 // export function giveAnswer(answer) {
