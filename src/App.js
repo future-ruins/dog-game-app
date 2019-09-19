@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import DogsList from "./Components/DogsList";
 import DogListImages from "./Components/DogListImages";
 import GameOne from "./Components/GameOne";
+import Homepage from "./Components/Homepage";
 //import Homepage from "./Components/Homepage";
 
 function Index() {
-  return <h2>Home</h2>;
+  return <Homepage />;
 }
 
 class App extends React.Component {

@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  padding: 2rem 0;
+  padding: 0;
   width: 100%;
   background: white;
   font-family: "Alegreya Sans", sans-serif;
@@ -15,7 +15,14 @@ nav a {
   margin: 0 10px;
   padding: 10px;
   border-radius: 8px;
-  background: #e5f8f8;
+  background: black;
+  color: white;
+  font-weight: bold;
+}
+
+nav {
+  padding: 35px;
+  background: black;
 }
 
 ul {
@@ -24,6 +31,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 .App-header {
