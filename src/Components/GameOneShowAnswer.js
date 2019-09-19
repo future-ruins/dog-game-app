@@ -4,6 +4,7 @@ import { getDogs, getRandomDog } from "../Actions/getDogs";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import { setTimeout } from "timers";
+import "./GameOneShowAnswer.css"
 
 // const randomDogName1 = this.getRandomDogNameFromDogList()
 // const randomDogName2 = this.getRandomDogNameFromDogList()
@@ -30,18 +31,18 @@ class GameOneShowAnswer extends React.Component {
   }
 
   handleClick = () => {
-    alert('CorrectAnswer')
+    alert('Correct!')
     return this.retrieveRandomDogImage()
   }
   
   handleClickA = () => {
-    alert(`Incorrect! The correct answer is ${this.props.gameOne.breed}.`)
+    alert(`Incorrect! The correct dog is ${this.props.gameOne.breed}.`)
     setTimeout(this.retrieveRandomDogImage, 2000)
     return
   }
   
   handleClickB = () => {
-    alert(`Incorrect! The correct answer is ${this.props.gameOne.breed}.`)
+    alert(`Incorrect! The correct dog is ${this.props.gameOne.breed}.`)
     setTimeout(this.retrieveRandomDogImage, 2000)
     return
   }
@@ -53,9 +54,9 @@ class GameOneShowAnswer extends React.Component {
   makeMyOptions = () => {
     const randomDogBreedName = this.props.gameOne.breed;
     
-    const correctAnswer =<h2 onClick={this.handleClick} >{randomDogBreedName}</h2>
-    const wrongNameOne = <h2 onClick={this.handleClickA} >{this.getRandomDogNameFromDogList()}</h2>;
-    const wrongNameTwo = <h2 onClick={this.handleClickB} >{this.getRandomDogNameFromDogList()}</h2>;
+    const correctAnswer =<h2 className="answer" onClick={this.handleClick} >{randomDogBreedName}</h2>
+    const wrongNameOne = <h2 className="answer" onClick={this.handleClickA} >{this.getRandomDogNameFromDogList()}</h2>;
+    const wrongNameTwo = <h2 className="answer" onClick={this.handleClickB} >{this.getRandomDogNameFromDogList()}</h2>;
     
     const arrayOfOptions = [wrongNameOne, wrongNameTwo, correctAnswer];
     
@@ -69,8 +70,8 @@ class GameOneShowAnswer extends React.Component {
     console.log('randomImage test GAME ONE SHOW ANSWER :', randomImage)
     return (
       <div className="randomDogImage">
-        <h2>Select the correct breed.</h2>
-        <button onClick={this.retrieveRandomDogImage}>Show next question!</button>
+        <h2>Select the correct dog breed.</h2>
+        {/* <button onClick={this.retrieveRandomDogImage}>Show next question!</button> */}
         <br></br>
         <br></br>
         { <img src={randomImage} alt="" /> }
