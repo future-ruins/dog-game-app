@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 class DogsListImages extends React.Component {
   componentDidMount() {
     this.props.getDogs();
-    this.props.getImages();
+    this.props.getImages(this.props.match.params.breed); // function argument
   }
 
   renderDogBreed(breed) {
@@ -15,6 +15,7 @@ class DogsListImages extends React.Component {
 
   render() {
     const images = this.props.state;
+    console.log('hello?', this.props.state)
     //console.log("state:", images);
     return (
       <div className="dog-breed-images">
