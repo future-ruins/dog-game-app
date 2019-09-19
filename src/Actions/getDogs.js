@@ -18,7 +18,7 @@ export const getDogs = () => {
 export const getImages = (breed) => {
   // const breed = this.props.match.params.breed is only availble in comp rendered by route and not in getDogs.js
   // to get that value, i made a a parameter for getImages, and inside your compo, i have put this.prop.match.params as an argument in the function call. 
-  console.log('match params:', breed)
+  // console.log('match params:', breed)
   return (dispatch) => { 
     request
       .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random/10`)
@@ -40,7 +40,10 @@ export const getRandomDog = () => {
         console.log('response for get images', response)
         dispatch({
           type: "SET_RANDOM_IMAGE_URL",
-          payload: response.body.message
+          payload: {
+            image: response.body.message,
+            breed: randomDog
+          }
         });
       });
   };

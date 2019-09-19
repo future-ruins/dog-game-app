@@ -17,7 +17,7 @@ class GameOneShowAnswer extends React.Component {
 
   getRandomDogNameFromDogList = () => {
     const dogName = this.props.dogsList
-    console.log('dogName:', dogName)
+    // console.log('dogName:', dogName)
     const arrayOfRandomDogNames = _.shuffle(dogName)
     return _.sample(arrayOfRandomDogNames)
   }
