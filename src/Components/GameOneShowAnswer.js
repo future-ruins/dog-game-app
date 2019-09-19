@@ -4,6 +4,12 @@ import { getDogs, getRandomDog } from "../Actions/getDogs";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
+// const randomDogName1 = this.getRandomDogNameFromDogList()
+// const randomDogName2 = this.getRandomDogNameFromDogList()
+// const correctDog = this.randomDogBreedName
+// const answers = [randomDogName1, randomDogName2, correctDog]
+// const shuffledAnswers = _.shuffle(answers)
+// console.log('hello??', shuffledAnswers)
 
 class GameOneShowAnswer extends React.Component {
   componentDidMount() {
