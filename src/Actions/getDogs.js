@@ -4,6 +4,7 @@ import _ from "lodash";
 export const getDogs = () => {
   return (dispatch, getState) => {
     const dogsList = getState().dogsList;
+    console.log('dogList state', dogsList)
     if (dogsList !== null) return;
     request.get("https://dog.ceo/api/breeds/list/all").then(response => {
       dispatch({
@@ -17,6 +18,7 @@ export const getDogs = () => {
 export const getImages = () => {
   return (dispatch, getState) => {
     const dogImages = getState().imagesReducer;
+    console.log('dogList state', dogImages)
     if (dogImages !== null) return;
     request
       .get("https://dog.ceo/api/breed/hound/images/random/10")
@@ -35,6 +37,7 @@ export const getRandomDog = () => {
     request
       .get(`https://dog.ceo/api/breed/${randomDog}/images/random`)
       .then(response => {
+        console.log('response for get images', response)
         dispatch({
           type: "SET_RANDOM_IMAGE_URL",
           payload: response.body.message
