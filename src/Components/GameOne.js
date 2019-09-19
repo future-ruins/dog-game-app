@@ -18,14 +18,15 @@ class GameOne extends React.Component {
 
   getRandomDogNameFromDogList = () => {
     const dogName = this.props.dogsList
-    console.log('dogName:', dogName)
+    // console.log('dogName:', dogName)
     const arrayOfRandomDogNames = _.shuffle(dogName)
     return _.sample(arrayOfRandomDogNames)
   }
 
   render() {
     const randomImage = this.props.gameOne;
-    console.log('randomImage test:', randomImage)
+    console.log('randomImage test:', this.props.gameOne)
+    console.log('randomImage test image/breed in GAME ONE:', this.props.gameOne)
     const question = randomImage && <div>
       <img src={randomImage} alt="" />
       <GameOneShowAnswer />
