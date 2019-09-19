@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { getDogs, getRandomDog } from "../Actions/getDogs";
 import { Link } from "react-router-dom";
+import _ from "lodash";
+
 
 class GameOne extends React.Component {
   componentDidMount() {
@@ -10,11 +12,18 @@ class GameOne extends React.Component {
 
   retrieveRandomDogImage = () => {
     this.props.getRandomDog();
+    this.getRandomDogNameFromDogList()
   }
-  
+
+  getRandomDogNameFromDogList = () => {
+    const dogName = this.props.dogsList
+    console.log('dogName:', dogName)
+    const arrayOfRandomDogNames = _.shuffle(dogName)
+    return _.sample(arrayOfRandomDogNames)
+  }
+
   render() {
     const randomImage = this.props.state;
-    console.log("randomImage is:", randomImage);
     return (
       <div className="randomDogImage">
         <h2>Hello gamer!</h2>
@@ -23,13 +32,20 @@ class GameOne extends React.Component {
         <br></br>
         <br></br>
         <img src={randomImage} alt="" />
+        <p>{this.getRandomDogNameFromDogList()}</p>
+        <p>{this.getRandomDogNameFromDogList()}</p>
+        <p>{this.getRandomDogNameFromDogList()}</p>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return { state: state.gameOneReducer };
+const mapStateToProps = state => { // each prop will have the value you give it. -> which means, the state of the reducer.
+                                  // the prop can have any name you give it. but makes it accessible in the component as props.propname ie props.gameOne (gives you state from GameOne reducer
+  return {
+    gameOne: state.gameOneReducer,
+    dogsList: state.dogsList,
+  };
 };
 
 export default connect(
