@@ -14,12 +14,13 @@ body {
 }
 
 nav a {
-  margin: 0 10px;
-  padding: 10px;
-  border-radius: 8px;
+  margin: 0 1em;
+  padding: 1em;
+  border-radius: 1em;
   background: black;
   color: white;
   font-weight: bold;
+  font-size: 3vh;
 }
 
 nav {
@@ -34,6 +35,7 @@ ul {
 a {
   text-decoration: none;
   color: black;
+  font-size: 3vh;
 }
 
 button {
@@ -41,8 +43,20 @@ button {
   font-size: 14px;
   align-items: center;
   background-color: lightgray;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+h1 {
+  font-size: 5vh;
+}
+
+h2 {
+  font-size: 3vh;
+}
+
+p {
+  font-size: 3vh;
 }
 
 h2.answer {
@@ -50,8 +64,9 @@ h2.answer {
   align-items: center;
   color: white;
   background-color: lightgray;
-  padding: 8px;
-  border-radius: 10px;
+  padding: 1em;
+  border-radius: 1em;
+  font-size: 3vh;
 }
 
 div.images {
@@ -63,12 +78,12 @@ div.images {
 }
 
 #dogLogo {
-  height: 130px;
+  height: 20vh;
   align-items: center;
 }
 
 #illustrations {
-  height: 220px;
+  height: 35vh;
 }
 
 img {
