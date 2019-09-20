@@ -23,6 +23,8 @@ class App extends React.Component {
               <Link to="/dogs/">Dogs List</Link>
 
               <Link to="/game-one/">Game 1</Link>
+
+              <Link to="/game-two/">Game 2</Link>
             </nav>
           </header>
           <main>
@@ -30,6 +32,7 @@ class App extends React.Component {
             <Route path="/dog-breeds/:breed" component={DogListImages} />
             <Route path="/dogs/" component={DogsList} />
             <Route path="/game-one/" component={GameOne} />
+            {/* <Route path="/game-two/" component={GameTwo} /> */}
           </main>
           <footer>
             <p></p>
