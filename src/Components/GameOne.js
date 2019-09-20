@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getDogs, getRandomDog } from "../Actions/getDogs";
+import { addCount } from "../Actions/ScoreActions";
 //import { Link } from "react-router-dom";
 import _ from "lodash";
 import GameOneShowAnswer from "./GameOneShowAnswer";
@@ -22,14 +23,15 @@ class GameOne extends React.Component {
   };
 
   render() {
-    const startGame = !this.props.dogName && (<div className="randomDogImage">
+    const startGame = !this.props.dogName && (
+      <div className="randomDogImage">
         <h1>Ready for game one?</h1>
         <button onClick={this.retrieveRandomDogImage}>Show me a dog</button>
         <br></br>
         <br></br>
       </div>
     );
-    
+
     const randomImage = this.props.gameOne;
 
     const question = randomImage && (
@@ -38,11 +40,7 @@ class GameOne extends React.Component {
       </div>
     );
 
-    return (
-      <div >
-        { randomImage ? question : startGame }
-      </div>
-    );
+    return <div>{randomImage ? question : startGame}</div>;
   }
 }
 
@@ -57,5 +55,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getDogs, getRandomDog }
+  { getDogs, getRandomDog, addCount }
 )(GameOne);

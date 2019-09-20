@@ -14,13 +14,15 @@ body {
 }
 
 nav a {
-  margin: 0 10vh;
-  padding: 1vh;
-  border-radius: 8px;
+
+  margin: 0 1em;
+
+  border-radius: 1em;
   background: black;
   color: white;
   font-weight: bold;
-  align-items: center;
+  font-size: 3vh;
+
 }
 
 nav {
@@ -35,6 +37,7 @@ ul {
 a {
   text-decoration: none;
   color: black;
+  font-size: 3vh;
 }
 
 button {
@@ -43,7 +46,21 @@ button {
   align-items: center;
   background-color: lightgray;
   padding: 1em;
-  border-radius: 4px;
+
+  border-radius: 1em;
+}
+
+h1 {
+  font-size: 5vh;
+}
+
+h2 {
+  font-size: 3vh;
+}
+
+p {
+  font-size: 3vh;
+
 }
 
 h2.answer {
@@ -51,8 +68,18 @@ h2.answer {
   align-items: center;
   color: white;
   background-color: lightgray;
-  padding: 1vh;
-  border-radius: 8px;
+
+  padding: 1em;
+  border-radius: 1em;
+  font-size: 3vh;
+}
+
+.scoreboard {
+  margin: 40px;
+  text-align: right;
+  font-size: 10px;
+  color: grey;
+
 }
 
 div.images {

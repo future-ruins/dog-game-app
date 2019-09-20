@@ -1,17 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getDogs, getRandomDog } from "../Actions/getDogs";
-import { Link } from "react-router-dom";
+import {
+  addCount,
+  updateStreak,
+  addScore,
+  addWin
+} from "../Actions/ScoreActions";
+//import { Link } from "react-router-dom";
 import _ from "lodash";
 import { setTimeout } from "timers";
 import "./GameOneShowAnswer.css";
-
-// const randomDogName1 = this.getRandomDogNameFromDogList()
-// const randomDogName2 = this.getRandomDogNameFromDogList()
-// const correctDog = this.randomDogBreedName
-// const answers = [randomDogName1, randomDogName2, correctDog]
-// const shuffledAnswers = _.shuffle(answers)
-// console.log('hello??', shuffledAnswers)
 
 class GameOneShowAnswer extends React.Component {
   componentDidMount() {
@@ -32,18 +31,28 @@ class GameOneShowAnswer extends React.Component {
 
   handleClick = () => {
     alert("Correct!");
+    this.props.addCount(this.props.scoreState.count);
+    this.props.updateStreak(this.props.scoreState.streak + 1);
+    this.props.addScore(this.props.scoreState.score + 1);
+    this.props.addWin();
     return this.retrieveRandomDogImage();
   };
 
   handleClickA = () => {
     alert(`Incorrect! The correct dog is ${this.props.gameOne.breed}.`);
     setTimeout(this.retrieveRandomDogImage, 2000);
+    this.props.addCount(this.props.scoreState.count);
+    this.props.updateStreak(0);
+    this.props.addWin();
     return;
   };
 
   handleClickB = () => {
     alert(`Incorrect! The correct dog is ${this.props.gameOne.breed}.`);
     setTimeout(this.retrieveRandomDogImage, 2000);
+    this.props.addCount(this.props.scoreState.count);
+    this.props.updateStreak(0);
+    this.props.addWin();
     return;
   };
 
@@ -95,11 +104,12 @@ const mapStateToProps = state => {
   // the prop can have any name you give it. but makes it accessible in the component as props.propname ie props.gameOne (gives you state from GameOne reducer
   return {
     gameOne: state.gameOneReducer,
-    dogsList: state.dogsList
+    dogsList: state.dogsList,
+    scoreState: state.scoreReducer
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getDogs, getRandomDog }
+  { getDogs, getRandomDog, addCount, updateStreak, addScore, addWin }
 )(GameOneShowAnswer);
