@@ -77,12 +77,10 @@ class GameOneShowAnswer extends React.Component {
 
   render() {
     const randomImage = this.props.gameOne.image;
-    //console.log("randomImage test GAME ONE SHOW ANSWER :", randomImage);
     return (
       <div className="randomDogImage">
         <h1>What kind of dog is this?</h1>
         <p>Select the correct dog breed from the options below:</p>
-        {/* <button onClick={this.retrieveRandomDogImage}>Show next question!</button> */}
         <br></br>
         <br></br>
         {<img src={randomImage} alt="" />}
