@@ -14,7 +14,6 @@ body {
 }
 
 nav a {
-
   margin: 0 1em;
 
   border-radius: 1em;
@@ -22,7 +21,6 @@ nav a {
   color: white;
   font-weight: bold;
   font-size: 3vh;
-
 }
 
 nav {
@@ -60,7 +58,6 @@ h2 {
 
 p {
   font-size: 3vh;
-
 }
 
 h2.answer {
@@ -79,7 +76,6 @@ h2.answer {
   text-align: right;
   font-size: 10px;
   color: grey;
-
 }
 
 div.images {
