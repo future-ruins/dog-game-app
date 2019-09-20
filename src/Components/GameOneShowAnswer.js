@@ -5,7 +5,8 @@ import {
   addCount,
   updateStreak,
   addScore,
-  addWin
+  addWin,
+  addLevel
 } from "../Actions/ScoreActions";
 //import { Link } from "react-router-dom";
 import _ from "lodash";
@@ -24,7 +25,6 @@ class GameOneShowAnswer extends React.Component {
 
   getRandomDogNameFromDogList = () => {
     const dogName = this.props.dogsList;
-    // console.log('dogName:', dogName)
     const arrayOfRandomDogNames = _.shuffle(dogName);
     return _.sample(arrayOfRandomDogNames);
   };
@@ -32,7 +32,11 @@ class GameOneShowAnswer extends React.Component {
   handleClick = () => {
     alert("Correct!");
     this.props.addCount(this.props.scoreState.count);
-    this.props.updateStreak(this.props.scoreState.streak + 1);
+    const streak = this.props.scoreState.streak + 1;
+    this.props.updateStreak(streak);
+    if (streak % 5 === 0) {
+      this.props.addLevel(this.props.scoreState.level);
+    }
     this.props.addScore(this.props.scoreState.score + 1);
     this.props.addWin();
     return this.retrieveRandomDogImage();
@@ -111,5 +115,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getDogs, getRandomDog, addCount, updateStreak, addScore, addWin }
+  { getDogs, getRandomDog, addCount, updateStreak, addScore, addWin, addLevel }
 )(GameOneShowAnswer);
