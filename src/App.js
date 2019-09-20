@@ -5,7 +5,8 @@ import DogsList from "./Components/DogsList";
 import DogListImages from "./Components/DogListImages";
 import GameOne from "./Components/GameOne";
 import Homepage from "./Components/Homepage";
-//import Homepage from "./Components/Homepage";
+import Scoreboard from "./Components/Scoreboard";
+//import GameTwo from "./Components/GameTwo";
 
 function Index() {
   return <Homepage />;
@@ -24,8 +25,11 @@ class App extends React.Component {
 
               <Link to="/game-one/">Game 1</Link>
 
-              <Link to="/game-two/">Game 2</Link>
+              {/* <Link to="/game-two/">Game 2</Link> */}
             </nav>
+            <div className="scoreboard">
+              <Scoreboard />
+            </div>
           </header>
           <main>
             <Route path="/" exact component={Index} />

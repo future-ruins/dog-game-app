@@ -15,7 +15,7 @@ class DogsListImages extends React.Component {
 
   render() {
     const images = this.props.state;
-    console.log("hello?", this.props.state);
+    //console.log("hello?", this.props.state);
     //console.log("state:", images);
     return (
       <div className="dog-breed-images">

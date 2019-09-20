@@ -15,7 +15,7 @@ body {
 
 nav a {
   margin: 0 1em;
-  padding: 1em;
+
   border-radius: 1em;
   background: black;
   color: white;
@@ -67,6 +67,13 @@ h2.answer {
   padding: 1em;
   border-radius: 1em;
   font-size: 3vh;
+}
+
+.scoreboard {
+  margin: 40px;
+  text-align: right;
+  font-size: 10px;
+  color: grey;
 }
 
 div.images {
