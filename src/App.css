@@ -14,16 +14,17 @@ body {
 }
 
 nav a {
-  margin: 0 10px;
-  padding: 10px;
+  margin: 0 10vh;
+  padding: 1vh;
   border-radius: 8px;
   background: black;
   color: white;
   font-weight: bold;
+  align-items: center;
 }
 
 nav {
-  padding: 35px;
+  padding: 2em;
   background: black;
 }
 
@@ -38,11 +39,11 @@ a {
 
 button {
   font-family: "Raleway", sans-serif;
-  font-size: 14px;
+  font-size: 2vh;
   align-items: center;
   background-color: lightgray;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 1em;
+  border-radius: 4px;
 }
 
 h2.answer {
@@ -50,8 +51,8 @@ h2.answer {
   align-items: center;
   color: white;
   background-color: lightgray;
-  padding: 8px;
-  border-radius: 10px;
+  padding: 1vh;
+  border-radius: 8px;
 }
 
 div.images {
@@ -63,12 +64,12 @@ div.images {
 }
 
 #dogLogo {
-  height: 130px;
+  height: 20vh;
   align-items: center;
 }
 
 #illustrations {
-  height: 220px;
+  height: 35vh;
 }
 
 img {
